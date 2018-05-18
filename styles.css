@@ -1,5 +1,5 @@
 #canvas {
-  margin-top: 50px;
+  margin-bottom: 5%;
   border: solid 4px grey;
   border-radius: 5px;
   padding-left: 0;
@@ -7,4 +7,9 @@
   margin-left: auto;
   margin-right: auto;
   display: block;
+}
+
+h1 {
+  text-align: center;
+  text-transform: uppercase;
 }
