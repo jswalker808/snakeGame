@@ -1,0 +1,39 @@
+body {
+  font-family: 'Skranji', cursive;
+}
+
+#canvas {
+  margin-bottom: 25px;
+  border: solid 5px #141619;
+  border-radius: 5px;
+  padding-left: 0;
+  padding-right: 0;
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+}
+
+h1 {
+  text-align: center;
+  text-transform: uppercase;
+  font-size: 50px;
+  margin-top: 25px;
+  margin-bottom: 0;
+}
+
+h2 {
+  /* width: 300px;
+  height: 300px;
+  border: solid; */
+}
+
+span {
+  margin-bottom: 5px;
+  text-transform: uppercase;
+}
+
+.container {
+  padding: 0;
+  width: 500px;
+  margin: auto;
+}
