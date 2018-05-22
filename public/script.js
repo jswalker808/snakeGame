@@ -17,13 +17,14 @@ window.onload = function() {
   let gameSpeed = 350;
   let boundaryX = 500;
   let boundaryY = 500;
-  let gameRun = false;
+  let gameRun = true;
   let gameOver = false;
   let foodDrawn = false;
   let scoreNumber = 0;
   let highScoreNumber = 0;
   let score = document.body.querySelector("#score");
   let highScore = document.body.querySelector("#highScore");
+  let restartContainer = document.body.querySelector("#restartContainer");
 
   function drawStartScreen() {
     ctx.font = "30px Arial";
@@ -31,14 +32,14 @@ window.onload = function() {
   }
   function game() {
     // setInterval(chooseDirection, gameSpeed);
-    // console.log("in game function");
-    loadScore();
-    generateRandomXY();
-    drawFood(foodX, foodY, snakeSize, snakeSize);
-    buildInitSnake();
-    intervalId = setInterval(moveUp, gameSpeed);
-    direction = 'up';
-    chooseDirection();
+      console.log("Game running");
+      loadScore();
+      generateRandomXY();
+      drawFood(foodX, foodY, snakeSize, snakeSize);
+      buildInitSnake();
+      intervalId = setInterval(moveUp, gameSpeed);
+      direction = 'up';
+      chooseDirection();
   }
 
     function chooseDirection() {
@@ -81,6 +82,7 @@ window.onload = function() {
       // console.log("x-value: " + snake[0].x);
       // console.log("y-value: " + snake[0].y);
       if (snake[0].y > 480 || snake[0].y < 0 || snake[0].x > 480 || snake[0].x < 0) {
+        console.log("Im in the boundary function");
         clearInterval(intervalId);
         gameOver = true;
         // console.log(gameOver);
@@ -94,6 +96,7 @@ window.onload = function() {
       // console.log("---------------------");
       for (let i = 1; i < snake.length; i++) {
         if ((snake[0].y === snake[i].y) && (snake[0].x === snake[i].x)) {
+          console.log("Im in the snake function");
           clearInterval(intervalId);
           gameOver = true;
           console.log(gameOver);
@@ -256,37 +259,47 @@ window.onload = function() {
           generateRandomXY();
       }
     }
-    function drawRestartBox() {
-      ctx.lineWidth = 10;
-      ctx.beginPath();
-      ctx.moveTo(115,100);
-      ctx.lineTo(350,100);
-      ctx.arcTo(400,100,400,150,15);
-      ctx.lineTo(400,350);
-      ctx.arcTo(400,400,350,400,15);
-      ctx.lineTo(150, 400);
-      ctx.arcTo(100,400,100,350,15);
-      ctx.lineTo(100, 150);
-      ctx.arcTo(100,100,150,100,15);
-      ctx.strokeStyle = "#26842c";
-      ctx.stroke();
-      ctx.fillStyle = "#93ff9c";
-      ctx.fill();
+
+    function unHideButton() {
+      restartContainer.style.visibility = "visible";
     }
-    function drawRestartText() {
-      console.log("Drawing the restart text!");
-      ctx.fillStyle = "#ea3333";
-      ctx.font = "30px Skranji";
-      ctx.fillText("Game Over!",170,150);
-      ctx.font = "20px Skranji";
-      ctx.fillStyle = "black";
-      ctx.fillText("Score: ",180,225);
-      ctx.font = "50px Skranji";
-      ctx.fillText(scoreNumber,260,235);
+    function hideButton() {
+      restartContainer.style.visibility = "hidden";
     }
     function restartScreen() {
-      drawRestartBox();
-      drawRestartText();
+      unHideButton();
+      document.body.querySelector("button").addEventListener("click", hideRestartScreen);
+    }
+    function resetVariables() {
+      snake = [];
+      initSnakeLength = 8;
+      snakeSize = 20;
+      startx = 240;
+      starty = 200;
+      foodX = 0;
+      foodY = 0;
+      direction = '';
+      intervalId = '';
+      goinUp = true;
+      goinLeft = false;
+      newHeadY = '';
+      newHeadX = '';
+      gameSpeed = 350;
+      boundaryX = 500;
+      boundaryY = 500;
+      gameRun = true;
+      gameOver = false;
+      foodDrawn = false;
+      scoreNumber = 0;
+      highScoreNumber = 0;
+      document.body.querySelector("button").removeEventListener("click", hideRestartScreen);
+    }
+    function hideRestartScreen() {
+      console.log("In hide restart screen");
+      hideButton();
+      ctx.clearRect(0,0,myCanvas.width, myCanvas.height);
+      resetVariables();
+      game();
     }
 
     game();

@@ -27,6 +27,32 @@ h2 {
   border: solid; */
 }
 
+#restartContainer {
+  background-color: #42f45c;
+  border: solid #24ad38 5px;
+  border-radius: 10px;
+  width: 70%;
+  margin: auto;
+  padding: 10px;
+  text-align: center;
+  position: relative;
+  top: -400px;
+  visibility: hidden;
+}
+
+#gameOverText {
+  color: #ea3c3c;
+  margin: 0;
+}
+
+button {
+  font-family: 'Skranji', cursive;
+  font-size: 15px;
+  border: solid 2px #24ad38;
+  border-radius: 10px;
+  padding: 5px;
+}
+
 span {
   margin-bottom: 5px;
   text-transform: uppercase;
