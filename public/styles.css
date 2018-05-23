@@ -27,6 +27,25 @@ h2 {
   border: solid; */
 }
 
+#startContainer {
+  background-color: #42f45c;
+  border: solid #24ad38 5px;
+  border-radius: 10px;
+  width: 70%;
+  margin: auto;
+  padding: 15px;
+  text-align: center;
+  position: relative;
+  top: -475px;
+}
+
+.keyImages {
+  border: solid;
+  border-radius: 5px;
+  padding: 2px;
+  background-color: #c8cbd1;
+}
+
 #restartContainer {
   background-color: #42f45c;
   border: solid #24ad38 5px;
@@ -36,13 +55,18 @@ h2 {
   padding: 10px;
   text-align: center;
   position: relative;
-  top: -400px;
-  visibility: hidden;
+  top: -450px;
+  display: none;
 }
 
 #gameOverText {
   color: #ea3c3c;
   margin: 0;
+}
+
+#restartScore {
+  margin-bottom: 10px;
+  padding: 0;
 }
 
 button {
