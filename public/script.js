@@ -25,7 +25,7 @@ window.onload = function() {
     let timeoutID = setTimeout(function() {
       hideStartScreen();
       game();
-    }, 5000);
+    }, 60000);
     loadScore();
     document.body.querySelector("#playButton").addEventListener("click", function() {
       restartGame(timeoutID);
