@@ -141,6 +141,7 @@ window.onload = function() {
   }
   function updateHighScore() {
     if (scoreNumber > highScoreNumber) {
+      document.body.querySelector("#highScoreText").style.display = "block";
       axios.put('/api/', {
         highScore: scoreNumber,
       }).then(response => {
@@ -294,6 +295,7 @@ window.onload = function() {
     }
     function hideRestartScreen() {
       hideButton();
+      document.body.querySelector("#highScoreText").style.display = "none";
       ctx.clearRect(0,0,myCanvas.width, myCanvas.height);
       resetVariables();
       game();

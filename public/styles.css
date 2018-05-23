@@ -59,6 +59,10 @@ h2 {
   display: none;
 }
 
+#highScoreText {
+  display: none;
+}
+
 #gameOverText {
   color: #ea3c3c;
   margin: 0;
