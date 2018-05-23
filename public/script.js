@@ -22,15 +22,21 @@ window.onload = function() {
 
 //Start Screen functions
   function startScreen() {
-    let timeoutID = setTimeout(game, 10000);
+    let timeoutID = setTimeout(function() {
+      hideStartScreen();
+      game();
+    }, 5000);
     loadScore();
     document.body.querySelector("#playButton").addEventListener("click", function() {
-      hideStartScreen(timeoutID);
+      restartGame(timeoutID);
     });
   }
-  function hideStartScreen(timeout) {
+  function restartGame(timeout) {
+    hideStartScreen();
     clearTimeout(timeout);
     game();
+  }
+  function hideStartScreen() {
     document.body.querySelector("#startContainer").style.display = "none";
   }
 
